@@ -11,3 +11,8 @@
 ```
  (env) MacBook-Air-4:oauth2 YOUR_USERNAME$`
 ```
+
+## Software version ##
+- Python: 3.4
+- PIP: 1.5
+- Django: 1.10.6
