@@ -1,0 +1,9 @@
+from django.shortcuts import render
+from oauth2_provider.views.generic import ProtectedResourceView
+from django.http import HttpResponse
+# Create your views here.
+
+
+class ApiEndPoint(ProtectedResourceView):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Hello, OAuth2!')
