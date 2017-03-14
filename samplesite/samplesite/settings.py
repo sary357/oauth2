@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import sys
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,6 +46,17 @@ INSTALLED_APPS = [
     'simple_api_provider',
 ]
 
+
+
+AUTHENTICATION_BACKENDS=(
+        'oauth2_provider.backends.OAuth2Backend',
+        'django.contrib.auth.backends.ModelBackend',
+        
+        )
+
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,8 +65,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+        'oauth2_provider.middleware.OAuth2TokenMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+
 ]
+# MIDDLEWARE = (
+#     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+#     'oauth2_provider.middleware.OAuth2TokenMiddleware',
+# )
+
+
 
 ROOT_URLCONF = 'samplesite.urls'
 
@@ -128,3 +151,4 @@ STATICFILES_DIRS=(
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+

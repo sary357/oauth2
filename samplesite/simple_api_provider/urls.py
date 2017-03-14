@@ -1,7 +1,9 @@
 from django.conf.urls import url, include
 import oauth2_provider.views as oauth2_views
+import oauth2_provider
 from django.conf import settings
 from .views import ApiEndPoint
+
 
 oauth2_endpoint_views = [
     url(r'^authorize/$', oauth2_views.AuthorizationView.as_view(), name="authorize"),
@@ -25,4 +27,5 @@ if settings.DEBUG:
 
 urlpatterns = [
     url(r'^api/hello', ApiEndPoint.as_view()),
+   # url(r'^secret$', 'my.views.secret_page', name='secret'),
 ]
